@@ -1,0 +1,71 @@
+{% extends 'main.jinja2' %}
+{% load static %}
+
+
+{% block title %}Registration{% endblock %}
+{% block mycss %}
+    <style>
+        .form-background {
+            background: url({% static 'app/img/form_background.png' %});
+            background-position: center;
+            background-size: cover;
+            background-position-y: 42%;
+        }
+
+        .form-login {
+            background: #fffefeb0;
+            border-radius: 74px;
+        }
+
+        .z-1000 {
+            z-index: 1000;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid m-0 p-0">
+        <header>
+            {% include 'includes/navbar.jinja2' %}
+        </header>
+
+        <h3 class="text-center text-success">Registration page</h3>
+        {% if form.errors %}
+            <div class="alert alert-danger position-absolute w-100 z-1000">
+                <a href="#" class="close" data-dismiss="alert" aria-label="Close">&times;</a>
+                {% for key, value in form.errors.items %}
+                    <span class="fieldWrapper"> {{ value }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="rounded-circle align-items-center h-100 position-fixed row w-100">
+            <div class="col-7 form-background justify-content-center h-75 m-auto mt-1">
+                <div style="padding-left: 50px;" class="col-12 flex-column h-100 justify-content-around row">
+                    <form method="post" class="col-6 m-auto text-center form-login">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.first_name }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.last_name }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password1 }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password2 }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.referral_code }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

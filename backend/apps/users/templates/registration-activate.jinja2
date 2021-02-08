@@ -1,0 +1,23 @@
+{% extends 'main.jinja2' %}
+{% load static %}
+
+
+{% block title %}Registration activate page{% endblock %}
+ {% block script %}{% endblock %}
+{% block body %}
+    <div class="container-fluid m-0 p-0">
+        <header>
+            {% include 'includes/navbar.jinja2' %}
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="alert alert-success mt-5">
+                    <h4 class="text-secondary text-center">Welcome. Thank you for registering.
+                        Please activate your profile using the link sent to your mail</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

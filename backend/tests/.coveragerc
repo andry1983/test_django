@@ -1,0 +1,26 @@
+[run]
+source=./backend/
+omit = *migrations*, *__init__*
+
+[html]
+directory = ./backend/tests/coverage_html_reports
+title= CMS TEST COVERAGE IS
+
+[report]
+#
+skip_covered = True
+
+omit = *__init__.py*, *cloud.py*
+exclude_lines =
+    # Don't complain about missing debug-only code:
+    def __repr__
+    # Don't complain about missing debug-only code:
+    def __str__
+    # Don't complain about missing debug-only code:
+    from * import *
+    # Don't complain about missing debug-only code:
+    import *
+
+    def get_queryset
+
+    def _.*

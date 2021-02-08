@@ -1,0 +1,25 @@
+import environ
+
+BACKEND_DIRECTORY_NAME = 'backend'
+TEST_DIRECTORY_NAME = 'tests'
+
+# the directory included application security keys for cms
+SECURITY_DIRECTORY_NAME = 'security'
+
+LEVELS_OF_PATH = 3  # ../../../
+APPS_DIRECTORY_NAME = 'apps'
+ENV_DIR_BACKEND_PATH = 'ENV/backend'
+COVERAGE_RC_FILE = '.coveragerc'
+
+PROJECT_DIR = environ.Path(
+    __file__) - LEVELS_OF_PATH  # the root directory for all project
+ROOT_BACKEND_DIR = PROJECT_DIR.path(BACKEND_DIRECTORY_NAME)
+
+ROOT_DIR = ROOT_BACKEND_DIR
+APPS_DIR = ROOT_BACKEND_DIR.path(APPS_DIRECTORY_NAME)
+
+ENV_BACKEND_DIR = PROJECT_DIR.path(ENV_DIR_BACKEND_PATH)
+SECURITY_DIR = ROOT_BACKEND_DIR.path(SECURITY_DIRECTORY_NAME)
+TEST_DIR = ROOT_BACKEND_DIR.path(TEST_DIRECTORY_NAME)
+COVERAGE_RC_FILE_PATH = TEST_DIR.path(f'./{COVERAGE_RC_FILE}')
+LOG_DIR = ROOT_BACKEND_DIR.path('var/log')
